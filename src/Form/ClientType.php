@@ -18,6 +18,7 @@ class ClientType extends AbstractType
             ->add('cin')
         ;
     }
+    
 
     public function configureOptions(OptionsResolver $resolver): void
     {
