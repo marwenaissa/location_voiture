@@ -112,4 +112,5 @@ class VoitureController extends AbstractController
         return $this->render("voiture/rechercheVoitureModele.html.twig",
             ["voitures"=>$voitures]);
     }
+    
 }
