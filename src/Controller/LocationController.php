@@ -89,4 +89,6 @@ class LocationController extends AbstractController
 
         return $this->redirectToRoute('app_location_index', [], Response::HTTP_SEE_OTHER);
     }
+    
 }
+
