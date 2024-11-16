@@ -1,19 +1,40 @@
-<h1>Liste des voitures</h1>
-<table>
-    <tr>
-        <td>ID</td>
-        <td>Serie</td>
-        <td>Date</td>
-        <td>Prix Jour</td>
-    </tr>
-    {% for v in listeVoiture %}
-        <tr>
-            <td>{{ v.id }}</td>
-            <td>{{ v.serie }}</td>
-            <td>{{ v.dateMM | date}}</td>
-            <td>{{ v.prixJour }}</td>
-            <td><a href="{{ path("voitureDelete", {'id': v.id}) }}">Supprimer</a></td>
-            <td><a href="{{ path("voitureUpdate", {'id': v.id}) }}">MAJ</a></td>
-        </tr>
-    {% endfor %}
-</table>
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Voitures{% endblock %}
+
+{% block body %}
+
+<br>
+<br>
+<br>
+<h1 class="table-title">Liste des voitures</h1>
+
+<a href="{{ path('addVoiture') }}" class="add-link">Ajouter voiture</a>
+<div class="table-container">
+
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Série</th>
+                <th>Date</th>
+                <th>Prix Jour</th>
+                <th colspan="2">Actions</th> <!-- Colspan de 2 pour Actions -->
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for v in listeVoiture %}
+                <tr>
+                    <td>{{ v.id }}</td>
+                    <td>{{ v.serie }}</td>
+                    <td>{{ v.dateMM | date }}</td>
+                    <td>{{ v.prixJour }}</td>
+                    <td><a href="{{ path('voitureDelete', {'id': v.id}) }}" class="action-link">Supprimer</a></td>
+                    <td><a href="{{ path('voitureUpdate', {'id': v.id}) }}" class="action-link">Modifier</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

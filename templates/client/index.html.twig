@@ -3,39 +3,47 @@
 {% block title %}Client index{% endblock %}
 
 {% block body %}
-    <h1>Client index</h1>
+ 
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Prenom</th>
-                <th>Adresse</th>
-                <th>Cin</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for client in clients %}
-            <tr>
-                <td>{{ client.id }}</td>
-                <td>{{ client.nom }}</td>
-                <td>{{ client.prenom }}</td>
-                <td>{{ client.adresse }}</td>
-                <td>{{ client.cin }}</td>
-                <td>
-                    <a href="{{ path('app_client_show', {'id': client.id}) }}">show</a>
-                    <a href="{{ path('app_client_edit', {'id': client.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="6">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+<br>
+<br>
+<br>
+    <h1 class="table-title">Client index</h1>
 
-    <a href="{{ path('app_client_new') }}">Create new</a>
+    <a href="{{ path('app_client_new') }}" class="add-link">Ajouter client</a>
+
+
+        <div class="table-container">
+            <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Adresse</th>
+                    <th>Cin</th>
+                    <th>actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for client in clients %}
+                <tr>
+                    <td>{{ client.id }}</td>
+                    <td>{{ client.nom }}</td>
+                    <td>{{ client.prenom }}</td>
+                    <td>{{ client.adresse }}</td>
+                    <td>{{ client.cin }}</td>
+                    <td>
+                        <a href="{{ path('app_client_show', {'id': client.id}) }}" class="action-link">Consulter</a>
+                        <a href="{{ path('app_client_edit', {'id': client.id}) }}" class="action-link">Modifier</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+            </table>
+        </div>
 {% endblock %}

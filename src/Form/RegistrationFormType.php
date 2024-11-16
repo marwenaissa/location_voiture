@@ -19,7 +19,9 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email')
+            ->add('email', null, [
+                'label' => false,  // Masquer le label
+            ])
             ->add("roles", ChoiceType::class,
             [
                 "choices"=> [
@@ -36,37 +38,41 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
             ->add('plainPassword', PasswordType::class, [
-                // instead of being set onto the object directly,
-                // this is read and encoded in the controller
-                'mapped' => false,
-                'attr' => ['autocomplete' => 'new-password'],
-                'constraints' => [
-                    new NotBlank([
-                        'message' => 'Please enter a password',
-                    ]),
-                    new Length([
-                        'min' => 6,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
-                        // max length allowed by Symfony for security reasons
+            // instead of being set onto the object directly,
+            // this is read and encoded in the controller
+            'mapped' => false,
+            
+            'attr' => ['autocomplete' => 'new-password'],
+            'constraints' => [
+                new NotBlank([
+                    'message' => 'Please enter a password',
+                ]),
+                new Length([
+                    'min' => 6,
+                    'minMessage' => 'Your password should be at least {{ limit }} characters',
+                    // max length allowed by Symfony for security reasons
+                    'max' => 4096,
+                ]),
+            ],
+            'label' => false, // Désactiver le label pour le champ plainPassword
+]);
 
-                        'max' => 4096,
-                    ]),
-                ],
-            ])
         ;
 
         $builder->get('roles')
-            ->addModelTransformer(new CallbackTransformer(
-                function ($tagsAsArray): string {
-                    // transform the array to a string
-                    return implode(', ', $tagsAsArray);
-                },
-                function ($tagsAsString): array {
-                    // transform the string back to an array
-                    return explode(', ', $tagsAsString);
+        ->addModelTransformer(new CallbackTransformer(
+            function ($rolesAsArray) {
+                // Transformation du tableau de rôles en chaîne de caractères
+                if (is_array($rolesAsArray)) {
+                    return implode(', ', $rolesAsArray);
                 }
-            ))
-        ;
+                return ''; // Si ce n'est pas un tableau, on renvoie une chaîne vide
+            },
+            function ($rolesAsString) {
+                // Transformation de la chaîne de caractères en tableau de rôles
+                return explode(', ', $rolesAsString);
+            }
+        ));
     }
 
     public function configureOptions(OptionsResolver $resolver): void

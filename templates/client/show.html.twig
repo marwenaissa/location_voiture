@@ -3,36 +3,59 @@
 {% block title %}Client{% endblock %}
 
 {% block body %}
-    <h1>Client</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ client.id }}</td>
-            </tr>
-            <tr>
-                <th>Nom</th>
-                <td>{{ client.nom }}</td>
-            </tr>
-            <tr>
-                <th>Prenom</th>
-                <td>{{ client.prenom }}</td>
-            </tr>
-            <tr>
-                <th>Adresse</th>
-                <td>{{ client.adresse }}</td>
-            </tr>
-            <tr>
-                <th>Cin</th>
-                <td>{{ client.cin }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <br>
+    <br>
+    <br>
+    <h1 class="table-title">Détails du Client</h1>
 
-    <a href="{{ path('app_client_index') }}">back to list</a>
+    <a href="{{ path('app_client_index') }}" class="back-button">Retour à la liste</a>
 
-    <a href="{{ path('app_client_edit', {'id': client.id}) }}">edit</a>
+
+    <div class="table-container">
+    
+        <table class="styled-table">
+            <tbody>
+                <tr>
+                    <th class="table-header">Id</th>
+                    <td class="table-data">{{ client.id }}</td>
+                </tr>
+                <tr>
+                    <th class="table-header">Nom</th>
+                    <td class="table-data">{{ client.nom }}</td>
+                </tr>
+                <tr>
+                    <th class="table-header">Prénom</th>
+                    <td class="table-data">{{ client.prenom }}</td>
+                </tr>
+                <tr>
+                    <th class="table-header">Adresse</th>
+                    <td class="table-data">{{ client.adresse }}</td>
+                </tr>
+                <tr>
+                    <th class="table-header">CIN</th>
+                    <td class="table-data">{{ client.cin }}</td>
+                </tr>
+
+                
+            </tbody>
+        </table>
+
+        
+    </div>
+
+
+
+ {# <script>
+        function confirmDelete() {
+            if (confirm("Êtes-vous sûr de vouloir supprimer cet élément ?")) {
+                // Soumet le formulaire de suppression ou redirige selon votre logique
+                document.querySelector('#delete-form').submit();
+            }
+        }
+    </script> #}
+   
 
     {{ include('client/_delete_form.html.twig') }}
 {% endblock %}
+

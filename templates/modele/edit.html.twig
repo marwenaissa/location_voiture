@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Modele{% endblock %}
+
+{% block body %}
+    <h1>Edit Modele</h1>
+    {{ form_start(form) }}
+        {{ form_row(form.libelle) }}
+        {{ form_row(form.pays) }}
+        <button type="submit" class="btn btn-warning">Update</button>
+    {{ form_end(form) }}
+{% endblock %}

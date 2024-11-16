@@ -15,8 +15,7 @@ use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 class VoitureController extends AbstractController
 {
-    #[IsGranted("ROLE_CLIENT")]
-    #[Route('/voiture', name: 'app_voiture')]
+    #[Route('/voiture' , name: 'app_voiture_index', methods: ['GET'] )]
     public function listeVoiture(VoitureRepository $vr): Response
     {
         $voitures = $vr->findAll();
@@ -35,7 +34,7 @@ class VoitureController extends AbstractController
         if($form->isSubmitted()){
             $em->persist($voiture);//prépare la requête sql (insert into ...)
             $em->flush(); //commit dans la bd
-            return $this->redirectToRoute("app_voiture");
+            return $this->redirectToRoute("app_voiture_index");
         }
         return $this->render("voiture/addVoiture.html.twig",
         ["formV"=>$form->createView()]);
@@ -49,7 +48,7 @@ class VoitureController extends AbstractController
          $em->remove($voiture);
          $em->flush();
 
-        return $this->redirectToRoute('app_voiture');
+        return $this->redirectToRoute('app_voiture_index');
     }
 
     #[Route('/updateVoiture/{id}', name: 'voitureUpdate')]
@@ -68,7 +67,7 @@ class VoitureController extends AbstractController
             $em->persist($voiture);
             $em->flush();
 
-            return $this->redirectToRoute('app_voiture');
+            return $this->redirectToRoute('app_voiture_index');
         }
         return $this->render('voiture/updateVoiture.html.twig', [
             'editFormVoiture'=>$editform->createView()

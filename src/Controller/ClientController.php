@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/client')]
+#[Route('/client')] // This should be updated to 'app_client_index' if it's for the list of clients
 class ClientController extends AbstractController
 {
     #[Route('/', name: 'app_client_index', methods: ['GET'])]
@@ -22,7 +22,7 @@ class ClientController extends AbstractController
         ]);
     }
 
-    
+
     #[Route('/new', name: 'app_client_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {

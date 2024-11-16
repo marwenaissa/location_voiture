@@ -1,0 +1,308 @@
+/* Style du titre */
+.table-title {
+    text-align: center;
+    color: #4C489D;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Conteneur du tableau */
+.table-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Style général du tableau */
+.styled-table {
+    width: 100%;
+    max-width: 600px;
+    border-collapse: collapse;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 24px #5C5696;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Entête du tableau */
+.styled-table th {
+    background-color: #7C78B8;
+    color: #FFF;
+    padding: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+/* Lignes du tableau */
+.styled-table td {
+    padding: 12px;
+    border-bottom: 1px solid #D1D1D4;
+    color: #4C489D;
+}
+
+.styled-table tr:nth-child(even) {
+    background-color: #F3F2FF;
+}
+
+/* Style pour les liens d'action */
+.action-link {
+    color: #4C489D;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.action-link:hover {
+    color: #6A679E;
+}
+
+
+
+
+/* Style pour les champs de saisie */
+.form-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #4C489D; /* Violet foncé */
+    box-shadow: 0 0 5px rgba(76, 72, 157, 0.3);
+    outline: none;
+}
+
+/* Style pour les labels */
+.form-label {
+    font-weight: bold;
+    color: #4C489D; /* Violet foncé pour correspondre à votre thème */
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+/* Style pour le conteneur de formulaire */
+.form-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    box-shadow: 0px 0px 20px rgba(76, 72, 157, 0.1);
+}
+
+/* Style pour les boutons */
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    color: white;
+    background-color: #4C489D;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-container button:hover {
+    background-color: #5D54A4; /* Violet un peu plus clair */
+}
+
+
+
+.delete-btn {
+    min-width: 120px; /* Largeur minimale */
+    font-size: 16px;
+    background-color: #D9534F; /* Rouge mat, doux */
+    color: white;
+    border: none;
+    margin-left: 20px !important;
+    padding: 8px 12px;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #C9302C; /* Un rouge légèrement plus foncé pour le survol */
+}
+
+/* Style pour le bouton d'ajout avec un design élégant */
+.add-link {
+    margin-left:20px !important;
+    display: inline-block;
+    margin: 20px auto; /* Centrage avec marge */
+    padding: 12px 20px;
+    background-color: #4E7E4D; /* Vert mat élégant */
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 10px; /* Coins plus arrondis */
+    box-shadow: 0px 4px 12px rgba(92, 86, 150, 0.3); /* Ombrage subtil */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.add-link:hover {
+    background-color: #3D6340; /* Vert mat plus foncé pour le survol */
+    box-shadow: 0px 6px 16px rgba(92, 86, 150, 0.4); /* Accentuer l'ombrage au survol */
+}
+
+
+.back-button {
+    margin-left: 20px !important; /* Centrage avec marge */
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #6A67A3; /* Darker violet background */
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    min-width: 100px;
+    text-align: center;
+    transition: background-color 0.2s ease;
+    margin-top: 20px;
+}
+
+.back-button:hover {
+    background-color: #5A578F; /* Even darker violet on hover */
+}
+
+
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4B2E5C; /* Violet plus foncé pour une touche plus intense */
+    padding: 10px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%; /* Ensure the navbar spans the full width of the screen */
+    top: 0; /* Ensure the navbar is positioned at the top */
+    left: 0; /* Ensure the navbar stretches from the left */
+    z-index: 1000; /* Ensure the navbar appears on top of other elements */
+}
+
+.navbar .logo a {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+    color: #FFD700; /* Jaune doré pour une belle touche de contraste */
+}
+
+
+/* Style spécifique pour le bouton de déconnexion */
+.logout-btn {
+    background-color: #FF6347; /* Rouge orangé pour un joli contraste avec le violet */
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.logout-btn:hover {
+    background-color: #FF4500; /* Rouge orangé foncé au survol */
+    transform: scale(1.05); /* Légère animation au survol */
+}
+
+.logout-btn:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(255, 99, 71, 0.7); /* Ombre pour l'accent au focus */
+}
+
+
+/* Container for better layout */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Wrapper for content */
+.content-wrapper {
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Headings */
+h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: #444;
+    margin-top: 20px;
+}
+
+/* Paragraphs and list items */
+p, ul {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+ul li {
+    margin-bottom: 15px;
+}
+
+/* Strong text */
+strong {
+    color: #5A3D7A; /* The violet color you chose earlier */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .content-wrapper {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+}

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modele List{% endblock %}
+
+{% block body %}
+<br>
+<br>
+<br>
+<h1 class="table-title">Modele liste</h1>
+    <a href="{{ path('app_modele_new') }}" class="add-link">Create New Modele</a>
+    <div class="table-container">
+        <table class="styled-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Libelle</th>
+                        <th>Pays</th>
+                        <th colspan="2">Actions</th> <!-- Colspan de 2 pour Actions -->
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for modele in modeles %}
+                    <tr>
+                       
+
+                        <td> {{ modele.id }}</td>
+                        <td> {{ modele.libelle }}</td>
+                        <td>({{ modele.pays }})</td>
+                        <td><a href="{{ path('voitureDelete', {'id': modele.id}) }}" class="action-link">Supprimer</a>
+                        <a href="{{ path('voitureUpdate', {'id': modele.id}) }}" class="action-link">Modifier</a></td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+        </table>
+    </div>
+{% endblock %}

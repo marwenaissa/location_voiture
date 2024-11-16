@@ -4,13 +4,44 @@
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        
         {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/register.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         {% endblock %}
 
         {% block javascripts %}
         {% endblock %}
     </head>
     <body>
+   <header>
+    <nav class="navbar">
+        <div class="logo">
+            <a href="{{ path('app_home') }}">Dashboard Location voiture</a>
+        </div>
+        <ul class="nav-links">
+            {% if app.user %}
+                <!-- Show this menu if the user is logged in -->
+                <li><a href="{{ path('app_home') }}">Accueil</a></li>
+                <li><a href="{{ path('app_voiture_index') }}">Voitures</a></li>
+                <li><a href="{{ path('app_modele_index') }}">Modele</a></li>
+                <li><a href="{{ path('app_client_index') }}">Client</a></li>
+                <li><a href="{{ path('app_location_index') }}">Location</a></li>
+                <li><a href="{{ path('app_logout') }}" class="logout-btn">Déconnexion</a></li>
+            {% else %}
+                <!-- Optionally, show these items for not logged-in users -->
+                <li><a href="{{ path('app_login') }}">Login</a></li>
+                <li><a href="{{ path('app_register') }}">Register</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+</header>
+
+
+
+    
         {% block body %}{% endblock %}
+        
     </body>
 </html>

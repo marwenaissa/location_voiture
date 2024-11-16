@@ -50,7 +50,7 @@ class UserAuthenticator extends AbstractLoginFormAuthenticator
 
         $user = $token->getUser();
         if(in_array("ROLE_CLIENT", $user->getRoles(), true)){
-            return new RedirectResponse($this->urlGenerator->generate("app_voiture"));
+            return new RedirectResponse($this->urlGenerator->generate("app_voiture_index"));
         }
 
         if(in_array("ROLE_AGENT", $user->getRoles(), true)){

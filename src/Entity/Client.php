@@ -104,7 +104,7 @@ class Client
         }
 
         return $this;
-    }
+    }   
     
 
     public function removeLocation(Location $location): static

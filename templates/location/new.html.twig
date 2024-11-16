@@ -3,9 +3,17 @@
 {% block title %}New Location{% endblock %}
 
 {% block body %}
-    <h1>Create new Location</h1>
+      <div class="page-container">
+        <br>
+        <br>
+        <br>
+        <h1 class="table-title">Créer nouveau location</h1>
 
-    {{ include('location/_form.html.twig') }}
+        <a href="{{ path('app_client_index') }}" class="add-link">Retour à la liste</a>
 
-    <a href="{{ path('app_location_index') }}">back to list</a>
+        <div class="form-container">
+
+            {{ include('location/_form.html.twig') }}
+        </div>
+        </div>
 {% endblock %}

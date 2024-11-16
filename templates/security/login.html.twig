@@ -3,29 +3,53 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+<div class="container">
+    <div class="screen">
+        <div class="screen__content">
+            <form method="post" class="login">
+                {% if error %}
+                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+                {% if app.user %}
+                    <div class="mb-3">
+                        You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+                    </div>
+                {% endif %}
+
+                <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+                <div class="login__field">
+                    <i class="login__icon fas fa-user"></i>
+                    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="login__input" placeholder="User name / Email" required autofocus>
+                </div>
+                
+                <div class="login__field">
+                    <i class="login__icon fas fa-lock"></i>
+                    <input type="password" name="password" id="inputPassword" class="login__input" placeholder="Password" required>
+                </div>
+
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                <button class="button login__submit" type="submit">
+                    <span class="button__text">Log In Now</span>
+                    <i class="button__icon fas fa-chevron-right"></i>
+                </button>
+            </form>
+            <div class="social-login">
+                <div class="social-icons">
+                    <a href="#" class="social-login__icon fab fa-instagram"></a>
+                    <a href="#" class="social-login__icon fab fa-facebook"></a>
+                    <a href="#" class="social-login__icon fab fa-twitter"></a>
+                </div>
+            </div>
         </div>
-    {% endif %}
+        <div class="screen__background">
+            <span class="screen__background__shape screen__background__shape4"></span>
+            <span class="screen__background__shape screen__background__shape3"></span>        
+            <span class="screen__background__shape screen__background__shape2"></span>
+            <span class="screen__background__shape screen__background__shape1"></span>
+        </div>
+    </div>
+</div>
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
-
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
-
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
-</form>
 {% endblock %}

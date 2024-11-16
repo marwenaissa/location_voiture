@@ -14,10 +14,15 @@
 
         <div class="form-container">
 
-        {{ form_start(formV) }}
-            {{ form_widget(formV) }}
-            <button class="btn">{{ button_label|default('Save') }}</button>
-        {{ form_end(formV) }}
+        {{ form_start(form) }}
+            {{ form_row(form.libelle) }}
+            {{ form_row(form.pays) }}
+            <button type="submit" class="btn btn-success">Save</button>
+        {{ form_end(form) }}
         </div>
     </div>
 {% endblock %}
+
+
+
+

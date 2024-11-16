@@ -3,32 +3,38 @@
 {% block title %}Location{% endblock %}
 
 {% block body %}
-    <h1>Location</h1>
+   <br>
+    <br>
+    <br>
+    <h1 class="table-title">Détails du location</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ location.id }}</td>
-            </tr>
-            <tr>
-                <th>DateD</th>
-                <td>{{ location.dateD ? location.dateD|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>DateA</th>
-                <td>{{ location.dateA ? location.dateA|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Prix</th>
-                <td>{{ location.prix }}</td>
-            </tr>
-        </tbody>
-    </table>
+        <a href="{{ path('app_location_index') }}" class="back-button">back to list</a>
+        <a href="{{ path('app_location_edit', {'id': location.id}) }}" class="edit-button"> edit </a>
+        {{ include('location/_delete_form.html.twig') }}
 
-    <a href="{{ path('app_location_index') }}">back to list</a>
+        <div class="table-container">
 
-    <a href="{{ path('app_location_edit', {'id': location.id}) }}">edit</a>
+            <table class="styled-table">
+                <tbody>
+                    <tr>
+                        <th>Id</th>
+                        <td>{{ location.id }}</td>
+                    </tr>
+                    <tr>
+                        <th>DateD</th>
+                        <td>{{ location.dateD ? location.dateD|date('Y-m-d') : '' }}</td>
+                    </tr>
+                    <tr>
+                        <th>DateA</th>
+                        <td>{{ location.dateA ? location.dateA|date('Y-m-d') : '' }}</td>
+                    </tr>
+                    <tr>
+                        <th>Prix</th>
+                        <td>{{ location.prix }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+   
 
-    {{ include('location/_delete_form.html.twig') }}
 {% endblock %}

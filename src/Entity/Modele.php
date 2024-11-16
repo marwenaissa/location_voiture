@@ -26,6 +26,7 @@ class Modele
 
     public function __construct()
     {
+        // Initialisation de la collection de voitures
         $this->voitures = new ArrayCollection();
     }
 
@@ -79,7 +80,7 @@ class Modele
     public function removeVoiture(Voiture $voiture): static
     {
         if ($this->voitures->removeElement($voiture)) {
-            // set the owning side to null (unless already changed)
+            // Set the owning side to null (unless already changed)
             if ($voiture->getModele() === $this) {
                 $voiture->setModele(null);
             }
